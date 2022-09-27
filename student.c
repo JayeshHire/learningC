@@ -106,6 +106,7 @@ void display(){
     }
 }
 
+
 //searching by roll_no 
 void search(){
     int student;
@@ -135,7 +136,9 @@ void modify(){
 
     int id ;
     char ext ;
-    ext = "q";
+        char *ptr;
+        ptr = &ext;
+        *ptr = "q";
     
     if (n==0){
         printf("\nno data in the database");
@@ -180,9 +183,33 @@ void modify(){
         
         scanf("%c",&check);
         
-        if (check == ext ){
+        if (check == *ptr ){
             break;
         }
+        }
+    }
+}
+
+//appending function
+void append(){
+    while(1){
+        printf("\nenter the roll no to be added:\n");
+        scanf("%d",&record[n].rn);
+        printf("\nenter the name of student\n");
+        scanf("%s",record[n].name);
+        printf("\nenter the marks of student\n");
+        scanf("%d",record[n].marks);
+        n+=1;
+        char ch ;
+        printf("\nchoose q to quit or any other charaacter to continue and enter\n");
+        scanf("%c",&ch);
+
+        char ext ;
+        char *ptr;
+        ptr = &ext;
+        *ptr = "q";
+        if(ch == *ptr){
+            break;
         }
     }
 }
